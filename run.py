@@ -27,19 +27,20 @@ def get_sales_data():
     data_str = input("Enter your data here: ")
 
     sales_data = data_str.split(",")
-    validate_date(sales_data)
+    validate_data(sales_data)
 
 
-def validate_date(values):
+def validate_data(values):
     """
     Inside the try, converts all string cvalues to integers.
     Raises ValueError if strings cannt be converted into int,
     or if there aren't exactly 6 vaues.
     """
     try:
-        if len(values) !=6:
+        [int(value) for value in values]
+        if len(values) != 6:
             raise ValueError(
-                f"Exactly 6 vaues required, you provided {len(values)}"
+                f"Exactly 6 values required, you provided {len(values)}"
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
